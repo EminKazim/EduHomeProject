@@ -1,6 +1,8 @@
 ﻿using EduHome.Models;
 using EduHome.Models.TeacherRelations;
 using EduHomeProject.Models;
+using EduHomeProject.Models.APrimary;
+using EduHomeProject.Models.EventRelations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,6 +15,7 @@ namespace EduHomeProject.Data
     public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        //Teachers
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<TeacherDetails> TeachersDetails { get; set; }
         public DbSet<TeacherContactInfo> TeacherContactInfos { get; set; }
@@ -21,6 +24,12 @@ namespace EduHomeProject.Data
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        //Events
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<EventSpeaker> EventSpeakers { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
